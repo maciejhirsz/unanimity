@@ -1,7 +1,12 @@
-unanimity
-=========
+# unanimity
 
 A `nano` sync for `Backbone.js`, sampe use:
+
+## installation
+
+`npm install unanimity`
+
+## usage
 
 ```
 var nano = require('nano')('http://localhost:5984/')
