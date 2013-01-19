@@ -2,8 +2,25 @@
 var unanimity;
 
 unanimity = function(backbone, db) {
+  var Result;
+  Result = (function() {
+
+    function Result() {}
+
+    Result.prototype.on = backbone.Events.on;
+
+    Result.prototype.off = backbone.Events.off;
+
+    Result.prototype.trigger = backbone.Events.trigger;
+
+    Result.prototype.once = backbone.Events.once;
+
+    return Result;
+
+  })();
   backbone.sync = function(method, model, options) {
-    var id, rev, update;
+    var id, result, rev, update;
+    result = new Result;
     id = null;
     if (model.id !== void 0) {
       id = model.id;
@@ -24,7 +41,8 @@ unanimity = function(backbone, db) {
           update[model.idAttribute] = body.id;
         }
         options.success(model, update, options);
-        return model.trigger('sync', model);
+        model.trigger('sync', model);
+        return result.trigger('success', model);
       });
     } else if (method === 'read') {
       if (id === null) {
@@ -46,7 +64,8 @@ unanimity = function(backbone, db) {
             update[key] = value;
           }
         }
-        return options.success(model, update, options);
+        options.success(model, update, options);
+        return result.trigger('success', model);
       });
     } else if (method === 'delete') {
       rev = model.get('_rev');
@@ -65,10 +84,11 @@ unanimity = function(backbone, db) {
             throw err;
           }
         }
-        return options.success(model, update, options);
+        options.success(model, update, options);
+        return result.trigger('success', model);
       });
     }
-    return model;
+    return result;
   };
   return backbone.sync.db = db;
 };

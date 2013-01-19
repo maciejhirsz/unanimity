@@ -1,6 +1,14 @@
 unanimity = (backbone, db) ->
 
+  class Result
+    on: backbone.Events.on
+    off: backbone.Events.off
+    trigger: backbone.Events.trigger
+    once: backbone.Events.once
+
   backbone.sync = (method, model, options) ->
+
+    result = new Result
     id = null
     id = model.id if model.id isnt undefined
     update = {}
@@ -19,6 +27,7 @@ unanimity = (backbone, db) ->
 
         options.success(model, update, options)
         model.trigger('sync', model)
+        result.trigger('success', model)
 
     else if method is 'read'
       throw "Can't fetch a model without id!" if id is null
@@ -35,6 +44,7 @@ unanimity = (backbone, db) ->
           update[key] = value if key isnt '_id' # don't need '_id' since we have model.id
 
         options.success(model, update, options)
+        result.trigger('success', model)
 
     else if method is 'delete'
       rev = model.get('_rev')
@@ -50,8 +60,9 @@ unanimity = (backbone, db) ->
             throw err
 
         options.success(model, update, options)
+        result.trigger('success', model)
 
-    return model
+    return result
 
   # --------------------------------
 
