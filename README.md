@@ -8,7 +8,7 @@ A `nano` sync for `Backbone.js`.
 
 ## usage
 
-```
+``` js
 var nano = require('nano')('http://localhost:5984/')
   , backbone = require('backbone')
   , unanimity = require('unanimity')
