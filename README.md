@@ -1,6 +1,6 @@
 # unanimity
 
-A `nano` sync for `Backbone.js`, sampe use:
+A `nano` sync for `Backbone.js`.
 
 ## installation
 
