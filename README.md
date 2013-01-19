@@ -20,7 +20,7 @@ var db = nano.use('test');
 unanimity(backbone, db)
 
 // Model id is the document id
-user = new backbone.Model(id: 'user:jhon.doe')
+user = new backbone.Model(id: 'user:john.doe')
 
 // Fetch data
 user.fetch({
