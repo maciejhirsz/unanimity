@@ -1,0 +1,18 @@
+{
+  "name": "unanimity",
+  "description": "Making backbone.js and nano seamlessly work together!",
+  "author": "Maciej Hirsz <maciej.hirsz@gmail.com>",
+  "version": "0.0.1",
+  "main": "./unanimity",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maciejhirsz/unanimity.git"
+  },
+  "keywords": [
+    "nano",
+    "backbone",
+    "CouchDB"
+  ],
+  "licence": "MIT"
+}
