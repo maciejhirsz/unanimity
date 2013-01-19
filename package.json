@@ -2,7 +2,7 @@
   "name": "unanimity",
   "description": "Making backbone.js and nano seamlessly work together!",
   "author": "Maciej Hirsz <maciej.hirsz@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./unanimity",
   "dependencies": {},
   "repository": {
