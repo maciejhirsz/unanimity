@@ -17,10 +17,10 @@ var nano = require('nano')('http://localhost:5984/')
 var db = nano.use('test');
 
 // bind the database to backbone
-unanimity(backbone, db)
+unanimity(backbone, db);
 
 // Model id is the document id
-var user = new backbone.Model(id: 'user:john.doe')
+var user = new backbone.Model(id: 'user:john.doe');
 
 // Fetch data
 user.fetch({
